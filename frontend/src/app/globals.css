@@ -1,0 +1,55 @@
+:root {
+  /* Background hierarchy */
+  --bg-base:        hsl(225, 20%, 6%);
+  --bg-primary:     hsl(225, 20%, 8%);
+  --bg-secondary:   hsl(225, 18%, 12%);
+  --bg-tertiary:    hsl(225, 16%, 16%);
+  --bg-hover:       hsl(225, 14%, 20%);
+
+  /* Borders */
+  --border-subtle:  hsl(225, 12%, 18%);
+  --border-default: hsl(225, 12%, 24%);
+
+  /* Text */
+  --text-primary:   hsl(220, 15%, 92%);
+  --text-secondary: hsl(220, 10%, 58%);
+  --text-muted:     hsl(220, 8%, 40%);
+
+  /* Accent — teal */
+  --accent:         hsl(160, 70%, 48%);
+  --accent-hover:   hsl(160, 70%, 58%);
+  --accent-subtle:  hsl(160, 70%, 48%, 0.12);
+
+  /* Semantic */
+  --error:          hsl(0, 72%, 60%);
+  --warning:        hsl(40, 90%, 55%);
+  --success:        hsl(140, 65%, 50%);
+  --highlight:      hsl(50, 95%, 60%, 0.25);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast:   120ms ease;
+  --transition-normal: 200ms ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}

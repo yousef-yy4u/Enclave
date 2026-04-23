@@ -1,0 +1,12 @@
+FROM node:20-alpine
+WORKDIR /app
+
+COPY package.json package-lock.json* ./
+RUN npm ci
+
+COPY . .
+
+EXPOSE 3000
+
+# CMD overridden in docker-compose.dev.yml to `npm run dev`
+CMD ["npm", "run", "dev"]

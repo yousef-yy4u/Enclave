@@ -1,0 +1,61 @@
+name: Bug Report
+description: Report something that isn't working correctly
+title: "[Bug]: "
+labels: [bug, needs triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill out the sections below so we can reproduce and fix it.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe what happened and what you expected to happen instead.
+      placeholder: "When I click X, Y happens. I expected Z instead."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Provide a step-by-step list to reproduce the issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Tell us about your setup.
+      placeholder: |
+        - OS: Windows 11 / Ubuntu 22.04 / macOS 14
+        - Docker version: 24.0.7
+        - LLM_PROVIDER: ollama
+        - EMBEDDING_PROVIDER: ollama
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: "Paste relevant log output. Run: `docker compose logs backend --tail=50`"
+      render: shell
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Git commit SHA or release tag
+      placeholder: "e.g. abc1234 or v0.1.0"
+    validations:
+      required: true

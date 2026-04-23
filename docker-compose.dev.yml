@@ -1,0 +1,33 @@
+# Development overrides — use with:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+#
+# Changes from production:
+#   - Backend: hot reload via uvicorn --reload, source mounted
+#   - Frontend: Next.js dev server with hot reload, source mounted
+#   - No healthcheck delays (faster iteration)
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    env_file: .env
+    environment:
+      DEBUG: "true"
+    volumes:
+      - ./backend/src:/app/src:ro
+      - document_storage:/app/data/documents
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    env_file: .env
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    volumes:
+      - ./frontend/src:/app/src:ro
+      - ./frontend/public:/app/public:ro
+    command: npm run dev
